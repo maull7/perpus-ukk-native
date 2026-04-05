@@ -1,0 +1,261 @@
+/* base.css - Satu CSS polos untuk seluruh aplikasi. Tanpa framework. */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+.nav-plain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+.nav-plain a,
+.nav-plain span {
+  color: #333;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.nav-plain a:hover {
+  text-decoration: underline;
+}
+.nav-plain img {
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.section-wrap {
+  padding: 20px;
+}
+.search-wrap {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.search-wrap input[type="text"] {
+  width: 280px;
+}
+.kategori-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.card-item .meta {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.container-plain {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 15px;
+}
+.form-group {
+  margin-bottom: 12px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #999;
+  font-size: 1rem;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: 1px solid #666;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  background: #eee;
+  color: #333;
+}
+.btn-primary {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+.btn-success {
+  background: #2a7;
+  color: #fff;
+  border-color: #2a7;
+}
+.btn-danger {
+  background: #c33;
+  color: #fff;
+  border-color: #c33;
+}
+.btn-warning {
+  background: #ca0;
+  color: #000;
+  border-color: #ca0;
+}
+.btn-info {
+  background: #07c;
+  color: #fff;
+  border-color: #07c;
+}
+
+.card-plain {
+  background: #fafafa;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+}
+.alert {
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid;
+}
+.alert-danger {
+  background: #fdd;
+  border-color: #c33;
+}
+.alert-success {
+  background: #dfd;
+  border-color: #2a7;
+}
+
+.dropdown-wrap {
+  position: relative;
+}
+.dropdown-plain {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 0;
+  min-width: 140px;
+  display: none;
+  z-index: 100;
+}
+.dropdown-plain.show {
+  display: block;
+}
+.dropdown-plain a {
+  display: block;
+  padding: 8px 12px;
+  color: #333;
+  text-decoration: none;
+}
+.dropdown-plain a:hover {
+  background: #eee;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+th {
+  background: #eee;
+}
+
+.modal-panel {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+.modal-panel.show {
+  display: flex;
+}
+.modal-box {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  min-width: 200px;
+}
+.modal-box a {
+  display: block;
+  padding: 8px;
+  margin: 4px 0;
+  text-align: center;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.card-item {
+  width: 180px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  overflow: hidden;
+}
+.card-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.card-item .body {
+  padding: 10px;
+}
+.card-item .body a {
+  margin-right: 8px;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 15px;
+  background: #333;
+  color: #fff;
+  margin-top: 20px;
+}
+.page-footer p {
+  margin: 0;
+}
+.section-title {
+  text-align: center;
+  padding: 15px;
+  font-size: 1.2rem;
+}
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+input[type="file"],
+textarea {
+  padding: 8px;
+  border: 1px solid #999;
+}
+textarea {
+  width: 100%;
+  min-height: 80px;
+}
