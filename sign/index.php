@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/functions.php';
 
@@ -121,3 +126,15 @@ if (isset($_POST['signIn'])) {
 </body>
 
 </html>
+<script>
+    // Replace state biar halaman login ga tersimpan di history
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+
+    // Paksa forward (block tombol back)
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function() {
+        window.history.pushState(null, null, window.location.href);
+    };
+</script>

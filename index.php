@@ -1,4 +1,9 @@
 <?php
+session_start();
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 require "config/config.php";
 require "config/functions.php";
 $buku = queryReadData("SELECT * FROM buku ORDER BY id_buku DESC");
@@ -7,6 +12,24 @@ foreach ($kategori as $kt) {
     if (isset($_POST[$kt['kategori']])) $buku = queryReadData("SELECT * FROM buku WHERE kategori = '" . $kt['kategori'] . "'");
 }
 if (isset($_POST["search"])) $buku = searchBuku($_POST["keyword"]);
+
+$loginRedirect = function () {
+    if (isset($_SESSION['role'])) {
+        if ($_SESSION['role'] === 'admin') {
+            header('Location: DashboardAdmin/dashboardAdmin.php');
+            exit;
+        }
+        if ($_SESSION['role'] === 'petugas') {
+            header('Location: petugas/index.php');
+            exit;
+        }
+    }
+    if (isset($_SESSION['signIn']) && isset($_SESSION['member'])) {
+        header('Location: DashboardMember/dashboardMember.php');
+        exit;
+    }
+};
+$loginRedirect();
 ?>
 <!DOCTYPE html>
 <html lang="id">
