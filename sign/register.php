@@ -44,17 +44,17 @@
         <link rel="stylesheet" href="../assets/base.css">
     </head>
 
-    <body>
+    <body class="auth-page">
         <nav class="nav-plain">
             <a href="../index.php">Beranda</a>
             <a href="index.php">Masuk</a>
         </nav>
-        <div class="container-plain">
-            <h1 style="text-align:center;">Daftar Member</h1>
+        <div class="container-plain auth-wrap">
+            <h1 class="auth-heading">Daftar member</h1>
             <?php if ($errorMsg) : ?>
                 <div class="alert alert-danger"><?= htmlspecialchars($errorMsg); ?></div>
             <?php endif; ?>
-            <div class="card-plain">
+            <div class="card-plain card-wide">
                 <form action="" method="post">
                     <div class="form-group"><label>NISN</label><input type="number" name="nisn" required></div>
                     <div class="form-group"><label>Kode Member</label><input type="text" name="kode_member" value="<?= htmlspecialchars($nextMemberCode); ?>" readonly></div>

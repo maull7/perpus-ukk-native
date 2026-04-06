@@ -24,7 +24,7 @@ if (isset($_POST["search"])) $buku = searchBuku($_POST["keyword"]);
         <nav class="nav-plain">
             <span><strong>Madta Perpus</strong> <img src="assets/header.png" alt="Logo"></span>
             <div class="dropdown-wrap">
-                <button type="button" onclick="toggleMenu()">MENU</button>
+                <button type="button" onclick="toggleMenu()" aria-expanded="false" id="menuBtn">Menu</button>
                 <div class="dropdown-plain" id="menuDropdown">
                     <a href="sign/index.php">Masuk</a>
                     <a href="sign/member/register.php">Daftar Member</a>
@@ -33,16 +33,24 @@ if (isset($_POST["search"])) $buku = searchBuku($_POST["keyword"]);
         </nav>
     </header>
 
-    <section class="section-wrap">
-        <h1 class="section-title">DAFTAR BUKU PERPUSTAKAAN</h1>
+    <section class="hero" aria-label="Pengantar">
+        <div class="hero-inner">
+            <p class="hero-kicker">Perpustakaan digital</p>
+            <h1 class="hero-title">Aksara Perpus</h1>
+            <p class="hero-lead">Cari judul, pilih kategori, dan temukan buku yang ingin kamu baca.</p>
+        </div>
+    </section>
+
+    <section class="section-wrap main-content">
+        <h2 class="section-title">Katalog buku</h2>
 
         <form action="" method="post" class="search-wrap">
-            <input type="text" name="keyword" placeholder="Cari buku...">
-            <button type="submit" name="search">Cari</button>
+            <input type="text" name="keyword" placeholder="Cari judul atau kata kunci…" autocomplete="off">
+            <button type="submit" name="search" class="btn btn-primary">Cari</button>
         </form>
 
         <form action="" method="post">
-            <div class="kategori-wrap">
+            <div class="kategori-wrap chip-row">
                 <button type="submit">Semua</button>
                 <?php foreach ($kategori as $kt) : ?>
                     <button type="submit" name="<?= strtolower($kt['kategori']) ?>"><?= htmlspecialchars($kt['kategori']) ?></button>
@@ -65,19 +73,24 @@ if (isset($_POST["search"])) $buku = searchBuku($_POST["keyword"]);
                 <?php endforeach; ?>
             </div>
         </div>
-
-        <footer class="page-footer">
-            <p>Copyright © 2026 UKK SMK MADYA.</p>
-        </footer>
     </section>
+
+    <footer class="page-footer">
+        <p>Copyright © 2026 UKK SMK MADYA.</p>
+    </footer>
 
     <script>
         function toggleMenu() {
-            document.getElementById('menuDropdown').classList.toggle('show');
+            var d = document.getElementById('menuDropdown');
+            var b = document.getElementById('menuBtn');
+            d.classList.toggle('show');
+            b.setAttribute('aria-expanded', d.classList.contains('show'));
         }
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.dropdown-wrap')) {
                 document.getElementById('menuDropdown').classList.remove('show');
+                var b = document.getElementById('menuBtn');
+                if (b) b.setAttribute('aria-expanded', 'false');
             }
         });
     </script>

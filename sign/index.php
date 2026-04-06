@@ -78,13 +78,13 @@ if (isset($_POST['signIn'])) {
     <link rel="stylesheet" href="../assets/base.css">
 </head>
 
-<body>
+<body class="auth-page">
     <nav class="nav-plain">
         <a href="../index.php">Beranda</a>
         <a href="register.php">Daftar Member</a>
     </nav>
-    <div class="container-plain">
-        <h1 style="text-align:center;">Masuk</h1>
+    <div class="container-plain auth-wrap">
+        <h1 class="auth-heading">Masuk</h1>
         <?php if ($logoutMsg) : ?>
             <div class="alert alert-success"><?= htmlspecialchars($logoutMsg); ?></div>
         <?php endif; ?>

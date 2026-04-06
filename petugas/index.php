@@ -33,8 +33,8 @@ while ($data = mysqli_fetch_assoc($query)) $peminjaman[] = $data;
         <span><strong>Madya Perpus</strong> <img src="../assets/header.png" alt="Logo" style="width:36px;height:36px;vertical-align:middle;border-radius:50%;"></span>
         <a href="signOut.php" class="btn btn-danger">Keluar</a>
     </nav>
-    <div class="container-plain">
-        <h1 class="section-title">Konfirmasi Peminjaman</h1>
+    <div class="container-plain page-shell">
+        <h1 class="section-title">Konfirmasi peminjaman</h1>
         <div style="overflow-x:auto;">
             <table>
                 <thead>

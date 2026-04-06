@@ -40,14 +40,14 @@ if (isset($_POST["search"])) $buku = searchBuku($_POST["keyword"]);
             </div>
         </div>
     </nav>
-    <div class="container-plain">
-        <h1 class="section-title">DAFTAR BUKU</h1>
-        <form action="" method="post" style="text-align:center;margin-bottom:15px;">
-            <input type="text" name="keyword" placeholder="Cari buku...">
-            <button type="submit" name="search">Cari</button>
+    <div class="container-plain page-shell">
+        <h1 class="section-title">Katalog untuk member</h1>
+        <form action="" method="post" class="search-bar">
+            <input type="text" name="keyword" placeholder="Cari judul atau kata kunci…" autocomplete="off">
+            <button type="submit" name="search" class="btn btn-primary">Cari</button>
         </form>
         <form action="" method="post">
-            <div class="flex-wrap" style="justify-content:center;">
+            <div class="flex-wrap chip-row" style="justify-content:center;">
                 <button type="submit">Semua</button>
                 <?php foreach ($kategori as $kt) : ?>
                     <button type="submit" name="<?= strtolower($kt['kategori']) ?>"><?= htmlspecialchars($kt['kategori']) ?></button>
